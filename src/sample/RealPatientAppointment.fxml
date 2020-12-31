@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RealPatientAppointment">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <AnchorPane prefHeight="444.0" prefWidth="429.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <DatePicker fx:id="field_date" layoutX="87.0" layoutY="124.0" promptText="Date" showWeekNumbers="true" />
+                <Text layoutX="87.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :" />
+                <Text layoutX="87.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time (24hrs Format) :" wrappingWidth="134.13671875" />
+                <Button layoutX="306.0" layoutY="355.0" mnemonicParsing="false" onAction="#SubmitButtonClick" prefHeight="27.0" prefWidth="84.0" style="-fx-background-color: #0598ff;" text="Submit" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font></Button>
+                <Hyperlink layoutX="14.0" layoutY="407.0" onAction="#BackHyperlinkPressed" prefHeight="23.0" prefWidth="123.0" text="Back to Menu" />
+                <AnchorPane layoutY="-2.0" prefHeight="85.0" prefWidth="431.0" style="-fx-background-color: #0598ff;">
+                    <children>
+                        <Text fill="WHITE" layoutX="108.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make an appointment" wrappingWidth="214.18359375">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <ComboBox fx:id="TimeComboBox" layoutX="87.0" layoutY="282.0" prefWidth="150.0" />
+                <Label layoutX="86.0" layoutY="259.0" text="Confirm your time :" />
+            <ComboBox fx:id="HourComboBox" layoutX="87.0" layoutY="197.0" prefHeight="25.0" prefWidth="69.0" promptText="Hour" />
+            <ComboBox fx:id="MinComboBox" layoutX="162.0" layoutY="197.0" prefHeight="25.0" prefWidth="69.0" promptText="Min" />
+            <Label fx:id="TimeInfo" layoutX="88.0" layoutY="231.0" prefHeight="17.0" prefWidth="200.0" textFill="#9e9b9b" />
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>

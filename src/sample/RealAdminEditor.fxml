@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="444.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RealAdminEditor">
+    <children>
+        <AnchorPane prefHeight="72.0" prefWidth="429.0" style="-fx-background-color: #0598ff;">
+            <children>
+                <Label alignment="CENTER" layoutX="54.0" layoutY="16.0" prefHeight="40.0" prefWidth="321.0" style="-fx-background-color: #ffffff;" text="Clinic Appointment Availibility">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Hyperlink layoutX="12.0" layoutY="407.0" onAction="#BackHyperlinkPressed" prefHeight="23.0" prefWidth="123.0" text="Back to Admin Menu" />
+        <DatePicker fx:id="StartDatePicker" layoutX="29.0" layoutY="116.0" promptText="Start" />
+        <Label layoutX="29.0" layoutY="89.0" text="Start date :" />
+        <Label layoutX="220.0" layoutY="89.0" text="End date :" />
+        <DatePicker fx:id="EndDatePicker" layoutX="215.0" layoutY="116.0" promptText="End" />
+        <Label layoutX="29.0" layoutY="222.0" text="Open Time :" />
+        <Label layoutX="207.0" layoutY="222.0" text="Close Time :" />
+        <Button layoutX="331.0" layoutY="392.0" mnemonicParsing="false" onAction="#SubmitButton" prefHeight="31.0" prefWidth="75.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="Submit">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Button>
+      <ComboBox fx:id="OpenTimeHour" layoutX="29.0" layoutY="247.0" prefHeight="25.0" prefWidth="75.0" promptText="Hour" />
+      <ComboBox fx:id="OpenTimeMin" layoutX="119.0" layoutY="247.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" />
+      <ComboBox fx:id="CloseTimeHour" layoutX="212.0" layoutY="247.0" prefHeight="25.0" prefWidth="75.0" promptText="Hour" />
+      <ComboBox fx:id="CloseTimeMin" layoutX="295.0" layoutY="247.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" />
+      <Label fx:id="CurrentTimeLabel" alignment="TOP_LEFT" layoutX="33.0" layoutY="282.0" prefHeight="72.0" prefWidth="340.0" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#ExceptionButton" prefHeight="31.0" prefWidth="174.0" style="-fx-background-color: #0b8231; -fx-text-fill: #ffffff;" text="Exception Date" textFill="#238c44">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="30.0" layoutY="180.0" prefHeight="17.0" prefWidth="87.0" text="Limit per slot :" />
+      <TextField fx:id="limitField" layoutX="119.0" layoutY="176.0" prefHeight="25.0" prefWidth="75.0" promptText="Limit" />
+    </children>
+</AnchorPane>
