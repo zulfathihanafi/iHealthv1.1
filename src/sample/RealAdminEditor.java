@@ -99,13 +99,13 @@ public class RealAdminEditor implements Initializable {
     @FXML
     void BackHyperlinkPressed(ActionEvent event){
         try {
-            Parent changeViewStaffParent = FXMLLoader.load(getClass().getResource("AfterLoginAdmin.fxml"));
-            Scene changeViewStaffScene = new Scene(changeViewStaffParent);
+            Parent parent = FXMLLoader.load(getClass().getResource("AfterLoginAdmin.fxml"));
+            Scene scene = new Scene(parent);
 
             //This line gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(changeViewStaffScene);
+            window.setScene(scene);
             window.show();
         }catch (IOException e){
             System.out.println("Error"+ e);
@@ -114,13 +114,13 @@ public class RealAdminEditor implements Initializable {
     @FXML
     void ExceptionButton(ActionEvent event){
         try {
-            Parent changeViewStaffParent = FXMLLoader.load(getClass().getResource("AdminDateException.fxml"));
-            Scene changeViewStaffScene = new Scene(changeViewStaffParent);
+            Parent parent = FXMLLoader.load(getClass().getResource("AdminDateException.fxml"));
+            Scene scene = new Scene(parent);
 
             //This line gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(changeViewStaffScene);
+            window.setScene(scene);
             window.show();
         }catch (IOException e){
             System.out.println("Error"+ e);
@@ -297,13 +297,10 @@ public class RealAdminEditor implements Initializable {
         System.out.println(getCloseHour()+"min");
         System.out.println("start"+ Date.valueOf(getStartDate())+"end"+getEndDate()+"open"+getOpenTime()+" "+getCloseTime());
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url ="jdbc:mysql://localhost:3307/userregistration";
-            String userName = "root";
-            String password = "";
+
             String query = "INSERT INTO `admintimedateeditor` (`opendate`, `closedate`, `opentime`, `closetime`,`limitPatient`) VALUES (?,?,?,?,?) ";
 
-            Connection connection = DriverManager.getConnection(url,userName,password);
+            Connection connection = ConnectionManage.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
@@ -316,7 +313,7 @@ public class RealAdminEditor implements Initializable {
             preparedStatement.execute();
             showMessageDialog(null,"Submit success","Success", PLAIN_MESSAGE);
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             showMessageDialog(null,"Submit failed","Error", WARNING_MESSAGE);
             System.out.println("Error connection" + e.getMessage());
         }

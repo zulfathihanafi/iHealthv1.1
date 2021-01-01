@@ -23,13 +23,13 @@ public class Front implements Initializable {
 
 @FXML void PatientButtonPressed(ActionEvent event){
     try {
-        Parent changeViewStaffParent = FXMLLoader.load(getClass().getResource("LoginPatient.fxml"));
-        Scene changeViewStaffScene = new Scene(changeViewStaffParent);
+        Parent parent = FXMLLoader.load(getClass().getResource("LoginPatient.fxml"));
+        Scene scene = new Scene(parent);
 
         //This line gets stage information
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        window.setScene(changeViewStaffScene);
+        window.setScene(scene);
         window.show();
     }catch (IOException e){
         System.out.println("Error"+ e);
@@ -38,13 +38,13 @@ public class Front implements Initializable {
 @FXML
     void StaffButtonPressed(ActionEvent event) {
     try {
-        Parent changeViewStaffParent = FXMLLoader.load(getClass().getResource("LoginAdmin.fxml"));
-        Scene changeViewStaffScene = new Scene(changeViewStaffParent);
+        Parent parent = FXMLLoader.load(getClass().getResource("LoginAdmin.fxml"));
+        Scene scene = new Scene(parent);
 
         //This line gets stage information
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        window.setScene(changeViewStaffScene);
+        window.setScene(scene);
         window.show();
     }catch (IOException e){
         System.out.println("Error"+ e);

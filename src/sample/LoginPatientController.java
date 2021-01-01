@@ -41,13 +41,13 @@ public class LoginPatientController implements Initializable {
     }
     @FXML void BackHyperlinkPressed(ActionEvent event){
         try {
-            Parent changeViewStaffParent = FXMLLoader.load(getClass().getResource("Front.fxml"));
-            Scene changeViewStaffScene = new Scene(changeViewStaffParent);
+            Parent parent = FXMLLoader.load(getClass().getResource("Front.fxml"));
+            Scene scene = new Scene(parent);
 
             //This line gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(changeViewStaffScene);
+            window.setScene(scene);
             window.show();
         }catch (IOException e){
             System.out.println("Error"+ e);
@@ -79,13 +79,13 @@ public class LoginPatientController implements Initializable {
                 sample.email.setEmailLogin(emailTextBox.getText());
                 JOptionPane.showMessageDialog(null,"Success login");
                 try {
-                    Parent changeViewStaffParent = FXMLLoader.load(getClass().getResource("PatientViewAppointment.fxml"));
-                    Scene changeViewStaffScene = new Scene(changeViewStaffParent);
+                    Parent parent = FXMLLoader.load(getClass().getResource("PatientViewAppointment.fxml"));
+                    Scene scene = new Scene(parent);
 
                     //This line gets stage information
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                    window.setScene(changeViewStaffScene);
+                    window.setScene(scene);
                     window.show();
                 }catch (IOException e){
                     System.out.println("Error"+ e);

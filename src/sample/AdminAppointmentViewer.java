@@ -46,13 +46,13 @@ public class AdminAppointmentViewer implements Initializable {
     @FXML
     void BackHyperlinkPressed(ActionEvent event){
         try {
-            Parent changeViewStaffParent = FXMLLoader.load(getClass().getResource("AfterLoginAdmin.fxml"));
-            Scene changeViewStaffScene = new Scene(changeViewStaffParent);
+            Parent parent = FXMLLoader.load(getClass().getResource("AfterLoginAdmin.fxml"));
+            Scene scene = new Scene(parent);
 
             //This line gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(changeViewStaffScene);
+            window.setScene(scene);
             window.show();
         }catch (IOException e){
             System.out.println("Error"+ e);
@@ -76,13 +76,13 @@ public class AdminAppointmentViewer implements Initializable {
             System.out.println(e);
         }
         try {
-            Parent changeViewStaffParent = FXMLLoader.load(getClass().getResource("AdminAppointmentViewer.fxml"));
-            Scene changeViewStaffScene = new Scene(changeViewStaffParent);
+            Parent parent = FXMLLoader.load(getClass().getResource("AdminAppointmentViewer.fxml"));
+            Scene scene = new Scene(parent);
 
             //This line gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(changeViewStaffScene);
+            window.setScene(scene);
             window.show();
         }catch (IOException e){
             System.out.println("Error"+ e);
