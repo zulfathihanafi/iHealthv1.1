@@ -230,7 +230,7 @@ public class AdminDateException implements Initializable {
 
                         LocalDate start = getStartDate();
                         LocalDate end = getEndDate();
-                        boolean b = empty||item.compareTo(start)<0||item.compareTo(end)>0;
+                        boolean b = empty||item.compareTo(LocalDate.now())<0||item.compareTo(start)<0||item.compareTo(end)>0;
 
                         try{
                             String query = "SELECT * FROM dateexception";

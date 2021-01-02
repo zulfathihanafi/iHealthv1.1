@@ -282,7 +282,7 @@ public class RealAdminEditor implements Initializable {
                         super.updateItem(item, empty);
                         LocalDate today = LocalDate.now();
                         LocalDate start = getStartDate();
-                        boolean b = empty||item.compareTo(today)<0||item.compareTo(start)<0;
+                        boolean b = empty||item.compareTo(LocalDate.now())<0||item.compareTo(today)<0||item.compareTo(start)<0;
 
                         setDisable(b);
 
