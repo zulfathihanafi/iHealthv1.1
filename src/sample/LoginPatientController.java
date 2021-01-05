@@ -37,7 +37,18 @@ public class LoginPatientController implements Initializable {
     @FXML
     void SignUpHyperlinkPressed(ActionEvent event){
         //Register
-        System.out.println("Hello");
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("Registration.fxml"));
+            Scene scene = new Scene(parent);
+
+            //This line gets stage information
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(scene);
+            window.show();
+        }catch (IOException e){
+            System.out.println("Error"+ e);
+        }
     }
     @FXML void BackHyperlinkPressed(ActionEvent event){
         try {
