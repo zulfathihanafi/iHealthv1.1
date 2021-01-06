@@ -58,17 +58,17 @@
                      </font></Text>
                   <Text layoutX="52.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
                   <TextField fx:id="field_name" layoutX="167.0" layoutY="42.0" prefHeight="26.0" prefWidth="228.0" promptText="Name" />
-                  <TextField fx:id="field_ic" layoutX="168.0" layoutY="77.0" prefHeight="26.0" prefWidth="226.0" promptText="IC without '-'" />
-                  <TextField fx:id="field_phone" layoutX="167.0" layoutY="116.0" prefHeight="26.0" prefWidth="227.0" promptText="Phone" />
-                  <TextField fx:id="field_email" layoutX="167.0" layoutY="159.0" prefHeight="26.0" prefWidth="228.0" promptText="Email" />
-                  <TextField fx:id="field_password" layoutX="167.0" layoutY="201.0" prefHeight="26.0" prefWidth="228.0" promptText="Password" />
-                  <Button layoutX="305.0" layoutY="276.0" mnemonicParsing="false" onAction="#RegisterButton" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #0598ff;" text="Register" textFill="WHITE">
+                  <TextField fx:id="field_ic" layoutX="168.0" layoutY="77.0" prefHeight="26.0" prefWidth="150.0" promptText="IC without '-'" />
+                  <TextField fx:id="field_phone" layoutX="167.0" layoutY="116.0" prefHeight="26.0" prefWidth="150.0" promptText="Phone" />
+                  <TextField fx:id="field_email" layoutX="167.0" layoutY="159.0" prefHeight="26.0" prefWidth="151.0" promptText="Email" />
+                  <TextField fx:id="field_password" layoutX="167.0" layoutY="201.0" prefHeight="26.0" prefWidth="150.0" promptText="Password" />
+                  <Button layoutX="307.0" layoutY="288.0" mnemonicParsing="false" onAction="#RegisterButton" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #0598ff;" text="Register" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="18.0" />
                      </font>
                   </Button>
                   <Hyperlink layoutX="24.0" layoutY="296.0" onAction="#hyperlinkLogin" text="Back To Login" />
-                  <TextField fx:id="field_Repassword" layoutX="167.0" layoutY="241.0" prefHeight="26.0" prefWidth="228.0" promptText="Re-type password" />
+                  <TextField fx:id="field_Repassword" layoutX="167.0" layoutY="241.0" prefHeight="26.0" prefWidth="151.0" promptText="Re-type password" />
                   <Text layoutX="52.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-enter Password" />
                </children></AnchorPane>
          </bottom>
