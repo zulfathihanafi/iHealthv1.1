@@ -313,6 +313,19 @@ public class RealAdminEditor implements Initializable {
             preparedStatement.execute();
             showMessageDialog(null,"Submit success","Success", PLAIN_MESSAGE);
 
+            try {
+                Parent parent = FXMLLoader.load(getClass().getResource("RealAdminEditor.fxml"));
+                Scene scene = new Scene(parent);
+
+                //This line gets stage information
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(scene);
+                window.show();
+            }catch (IOException e){
+                System.out.println("Error"+ e);
+            }
+
         } catch (SQLException e) {
             showMessageDialog(null,"Submit failed","Error", WARNING_MESSAGE);
             System.out.println("Error connection" + e.getMessage());

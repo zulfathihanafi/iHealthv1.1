@@ -11,7 +11,7 @@ public class ConnectionManage {
     private static String password = "";
     //Online DB
 
-//    private static String url ="jdbc:mysql://johnny.heliohost.org:3306/fathiim_iHealth?serverTimezone=UTC#";
+//     private static String url ="jdbc:mysql://johnny.heliohost.org:3306/fathiim_iHealth?serverTimezone=UTC#";
 //     private static String username = "fathiim_root";
 //     private static String password = "rootroot";
 

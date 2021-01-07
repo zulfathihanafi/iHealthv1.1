@@ -98,15 +98,12 @@ public class AdminAppointmentViewer implements Initializable {
             setID(newValue);
         } );
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String DBurl ="jdbc:mysql://localhost:3307/userregistration?serverTimezone=UTC";
-            String userName = "root";
-            String password = "";
+
 
             //from admintimeeditordatabase
             String query = "SELECT * FROM appointmentlist ";
 
-            Connection connection = DriverManager.getConnection(DBurl,userName,password);
+            Connection connection = ConnectionManage.getConnection();
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(query);
 
@@ -122,7 +119,7 @@ public class AdminAppointmentViewer implements Initializable {
                 list.add(new TableAdminAppointment(num,id,localDate,localTime));
             }
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             System.out.println("Error connection "+ e);
         }
 
