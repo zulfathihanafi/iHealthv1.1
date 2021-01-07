@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -86,7 +87,7 @@ public class RegistrationController implements Initializable {
     @FXML
     void hyperlinkLogin(ActionEvent event){
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("LoginPatient[[.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("LoginPatient.fxml"));
             Scene scene = new Scene(parent);
 
             //This line gets stage information
@@ -120,6 +121,7 @@ public class RegistrationController implements Initializable {
                 preparedStatement.execute();
                 showMessageDialog(null,"Submit success","Success", PLAIN_MESSAGE);
 
+                //back to login interface
                 try {
                     Parent parent = FXMLLoader.load(getClass().getResource("LoginPatient.fxml"));
                     Scene scene = new Scene(parent);
@@ -138,10 +140,14 @@ public class RegistrationController implements Initializable {
                 System.out.println("Error connection" + e.getMessage());
             }
         }
+        else{
+            JOptionPane.showMessageDialog(null,error_message,"Warning", WARNING_MESSAGE);
+        }
 
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         field_name.textProperty().addListener((observable,oldValue,newValue) ->{
             setName(newValue);
         } );
@@ -153,7 +159,6 @@ public class RegistrationController implements Initializable {
         } );
         field_email.textProperty().addListener((observable,oldValue,newValue) ->{
             setEmail(newValue);
-            checker();
         } );
         field_password.textProperty().addListener((observable,oldValue,newValue) ->{
             setPassword(newValue);
@@ -161,9 +166,11 @@ public class RegistrationController implements Initializable {
         field_Repassword.textProperty().addListener((observable,oldValue,newValue) ->{
             setRepassword(newValue);
         } );
-
     }
     public boolean checker (){
+        error_message="";
+
+
         score=4;
         //check email availability
         try {
@@ -191,30 +198,27 @@ public class RegistrationController implements Initializable {
 
         //check ic
         String ic = getIC();
+        System.out.println("IC : "+IC+"name"+name);
         if(ic.length()==12){
-            for(int i=0;i<ic.length();i++){
-                if(ic.charAt(i)=='-'){
+                if(ic.contains("-")){
                     error_message+= "\nIC must not contain '-' ";
                     score--;
-                    break;
                 }
-            }
+
+        }
+        else {
+            error_message+="\nPlease enter correct IC";
+            score--;
         }
 
         //check email
               String email = getEmail();
-            for(int i=0;i<ic.length();i++){
-                if(email.charAt(i)=='@'){
-                    break;
-                }
-                if(i==ic.length()-1){
-                    score--;
-                    error_message+= "\nPlease enter valid email";
-                }
-            }
+            if(!email.contains("@")){score--;
+            error_message+="\nPlease enter a valid email";}
 
             if(!getPassword().equals(getRepassword())){
                 error_message+="\nPlease enter password correctly";
+                score--;
             }
 
 

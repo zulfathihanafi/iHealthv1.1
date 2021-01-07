@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.Calendar;
+
 public class Main extends Application {
 
     @Override
@@ -16,6 +18,7 @@ public class Main extends Application {
         primaryStage.setTitle("iHealth v1.0");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        
     }
 
 
