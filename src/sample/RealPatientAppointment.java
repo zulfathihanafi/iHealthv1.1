@@ -324,6 +324,10 @@ public class RealPatientAppointment implements Initializable {
                         }
 
                          setDisable(b);
+                        if(b){
+                            setTooltip(new Tooltip("Date unavailable"));
+                            setStyle("-fx-background-color: #969393;");
+                        }
 
 
                     }
