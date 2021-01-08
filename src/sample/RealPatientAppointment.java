@@ -138,6 +138,8 @@ public class RealPatientAppointment implements Initializable {
     @FXML
     void SubmitButtonClick(ActionEvent event){
         event.getSource();
+        //check for repeated appointment
+        if(!repeatedAppointment()){
         try {
 
             String query = "INSERT INTO `appointmentlist` (`Num`, `ID`, `Name`, `Date`, `Time`) VALUES (NULL,?,?,?,?) ";
@@ -173,6 +175,9 @@ public class RealPatientAppointment implements Initializable {
             JOptionPane.showMessageDialog(null,"Fail","Warning", WARNING_MESSAGE);
             System.out.println("Error connection" + e.getMessage());
         }
+        }
+
+        else JOptionPane.showMessageDialog(null,"You already have an appointment at that time","Warning",JOptionPane.ERROR_MESSAGE);
     }
 
 
@@ -398,7 +403,7 @@ public class RealPatientAppointment implements Initializable {
                 while (rs.next()) {
 
                 dataTime = rs.getTime("time").toLocalTime();
-                    System.out.println("data "+dataTime+"timeFIlter"+timeFilter.get(i));
+                    System.out.println("data "+dataTime+"timeFilter"+timeFilter.get(i));
                 if(dataTime.equals(timeFilter.get(i))){
                     cnt++;
                     System.out.print("\nequal, count = "+cnt);
@@ -428,6 +433,25 @@ public class RealPatientAppointment implements Initializable {
             System.out.println("Set limit time Error " + e);
         }
         return timeFilter;
+    }
+
+    public boolean repeatedAppointment(){
+        boolean checker;
+
+        try{
+            Connection con = ConnectionManage.getConnection();
+            String query =  "SELECT * FROM appointmentlist where ID = "+ "'" +getID()+"'"+"and date = "+ "'" +Date.valueOf(getDate())+"'"+"and time ="+ "'" +Time.valueOf(getTime())+"'";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            if(rs.next() ){
+                System.out.println(rs.getString(1));
+                return true;}
+
+        }catch (SQLException e) {
+            System.out.println("Error");
+        }
+
+        return false;
     }
 
 
